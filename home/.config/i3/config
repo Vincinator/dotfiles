@@ -4,7 +4,7 @@ set $mod Mod1
 #exec ~/.screenlayout/default.sh
 exec easystroke
 #exec_always --no-startup-id wal -l -i /home/vincent/Wallpaper/yellow/savannah/default.jpg &&
-exec_always --no-startup-id /home/vincent/system/polybar.sh
+exec_always --no-startup-id /home/vincent/.config/polybar/polybar.sh
 exec --no-startup-id feh Wallpaper/yellow/savannah/default.jpg --bg-scale 
 exec --no-startup-id compton
 exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps

@@ -46,4 +46,3 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
