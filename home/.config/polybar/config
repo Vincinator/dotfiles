@@ -1,73 +1,60 @@
 ;==========================================================
-;
-;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
 ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
 ;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222}
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
+background = #ffffff
+foreground = #373b41
+foreground-alt = #a36ac7 
+primary = #7f7f7f
+;#fba922
+secondary = #3971ed
+alert = #cc342b
 
-
-[bar/top]
-monitor = ${env:MONITOR:DVI-D-0}
+[bar/bottom]
+;monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
+height = 33
+offset-x = 0%
+offset-y = 0%
 radius = 0
 fixed-center = false
-
+bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground} 
 
-line-size = 3
-line-color = #f00
+line-size = 0
+line-color = ${colors.primary}
 
 border-size = 0
-border-color = #00000000
+border-color = ${colors.primary}
 
-padding-left = 0
-padding-right = 2
+padding-left = 1
+padding-right = 1
 
-module-margin-left = 5
+module-margin-left = 2
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+;font-0 = fixed:pixelsize=16;1
+font-0 = Source Code Pro:style=Bold:pixelsize=14;1
+font-1 = Fantasque Sans Mono:size=10:antialias=true;0
+font-2 = FontAwesome:pixelsize=8;1
 
 modules-left = i3
 modules-center =
-modules-right = filesystem pulseaudio xkeyboard wlan eth temperature date powermenu
+modules-right = battery backlight-acpi pulseaudio date
 
-tray-position = right
+tray-position = center
 tray-padding = 1
-tray-background = ${colors.primary}
-
-;wm-restack = bspwm
+tray-background = ${colors.background}
 wm-restack = i3
 
 ;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -168,8 +155,8 @@ format = <label-state> <label-mode>
 ;   %mode%
 ; Default: %mode%
 label-mode = %mode%
-label-mode-padding = 2
-label-mode-background = #e60053
+label-mode-padding = 0
+label-mode-background = ${colors.background}
 
 ; Available tokens:
 ;   %name%
@@ -178,10 +165,10 @@ label-mode-background = #e60053
 ;   %output%
 ; Default: %icon%  %name%
 label-focused = %index%
-label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #fba922
-label-focused-padding = 4
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
 
 ; Available tokens:
 ;   %name%
@@ -190,8 +177,8 @@ label-focused-padding = 4
 ;   %output%
 ; Default: %icon%  %name%
 label-unfocused = %index%
-label-unfocused-padding = 4
-
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.primary}
 ; Available tokens:
 ;   %name%
 ;   %icon%
@@ -199,8 +186,8 @@ label-unfocused-padding = 4
 ;   %output%
 ; Default: %icon%  %name%
 label-visible = %index%
-label-visible-underline = #555555
-label-visible-padding = 4
+label-visible-underline = ${colors.primary}
+label-visible-padding = 0
 
 ; Available tokens:
 ;   %name%
@@ -209,14 +196,14 @@ label-visible-padding = 4
 ;   %output%
 ; Default: %icon%  %name%
 label-urgent = %index%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-padding = 4
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 0
 
 ; Separator in between workspaces
-label-separator = |
-label-separator-padding = 2
-label-separator-foreground = #ffb52a
+label-separator =  
+label-separator-padding = 0
+label-separator-foreground = ${colors.primary}
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -270,11 +257,11 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlxbc05430da928
+interface = wlp0s20f0u1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.secundary}
 label-connected = %essid%
 
 format-disconnected =
@@ -389,24 +376,24 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -467,7 +454,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
+margin-top = 0
 margin-bottom = 5
 
 ; vim:ft=dosini

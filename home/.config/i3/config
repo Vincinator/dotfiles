@@ -1,10 +1,11 @@
 set $mod Mod1
 
 # ----------- AUTO ------------
-exec ~/.screenlayout/default.sh
+#exec ~/.screenlayout/default.sh
 exec easystroke
+#exec_always --no-startup-id wal -l -i /home/vincent/Wallpaper/yellow/savannah/default.jpg &&
 exec_always --no-startup-id /home/vincent/system/polybar.sh
-exec --no-startup-id wal -R
+exec --no-startup-id feh Wallpaper/yellow/savannah/default.jpg --bg-scale 
 exec --no-startup-id compton
 exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps
 
@@ -16,8 +17,8 @@ floating_modifier $mod
 # no window borders
 for_window [class="^.*"] border pixel 1
 
-gaps inner 5
-gaps outer 3
+gaps inner 9
+gaps outer 0
 smart_borders on
 # ----------- COLOR -----------
 
@@ -26,8 +27,8 @@ smart_borders on
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color3 #f0f0f0
-set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $bg #ffffff #ffffff
+set_from_resource $fg #000000 #373b41
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
@@ -38,14 +39,23 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
 
-# PROTIP: You can also dynamically set dmenu's colors this way:
 
 
 # ----------- KEYS ------------
 
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+bindsym $mod+d exec dmenu_run -nb "#505050" -nf "#f5f5f5" -sb "#d0d0d0" -sf "#151515" -h 36  -x 325 -y -3 -fn 'Source Code Pro-13'
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
 
 # change focus
 bindsym $mod+h focus left
