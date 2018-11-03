@@ -37,27 +37,36 @@ client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-client.background       $bg
-
-
-
-# ----------- KEYS ------------
-
+# =========================================================
+# KEYS
+# =========================================================
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run -nb "#505050" -nf "#f5f5f5" -sb "#d0d0d0" -sf "#151515" -h 36  -x 325 -y -3 -fn 'Source Code Pro-13'
 
+# ---------------------------------------------------------
+# dmenues 
+# ---------------------------------------------------------
+set $dmenu_params -nb "#505050" -nf "#f5f5f5" -sb "#d0d0d0" -sf "#151515" -h 36  -x 325 -y -3 -fn 'Source Code Pro-13'
+bindsym $mod+d exec dmenu_run $dmenu_params
+bindsym $mod+c exec netctl list | cut -b 3- |  dmenu $dmenu_params | ifne xargs sudo -A netctl switch-to
+
+# ---------------------------------------------------------
 # Pulse Audio controls
+# ---------------------------------------------------------
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
+# ---------------------------------------------------------
 # Sreen brightness controls
+# ---------------------------------------------------------
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 
-# change focus
+# ---------------------------------------------------------
+# Window management
+# ---------------------------------------------------------
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -185,10 +194,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-#bar {
-#        status_command i3status
-#}
