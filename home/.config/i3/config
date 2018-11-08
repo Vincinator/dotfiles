@@ -8,7 +8,7 @@ exec_always --no-startup-id /home/vincent/.config/polybar/polybar.sh
 exec --no-startup-id feh Wallpaper/yellow/savannah/default.jpg --bg-scale 
 exec --no-startup-id compton
 exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps
-
+exec --no-startup-id nm-applet
 # ----------- STYLE -----------
 font pango:DejaVu Sans Mono 14
 
@@ -48,7 +48,12 @@ bindsym $mod+Shift+q kill
 # ---------------------------------------------------------
 set $dmenu_params -nb "#505050" -nf "#f5f5f5" -sb "#d0d0d0" -sf "#151515" -h 36  -x 325 -y -3 -fn 'Source Code Pro-13'
 bindsym $mod+d exec dmenu_run $dmenu_params
-bindsym $mod+c exec netctl list | cut -b 3- |  dmenu $dmenu_params | ifne xargs sudo -A netctl switch-to
+
+#bindsym $mod+c exec netctl list | cut -b 3- |  dmenu $dmenu_params | ifne xargs sudo -A netctl switch-to
+
+bindsym $mod+m exec echo -e "HDMI1\nDP1" | dmenu $dmenu_params | xargs scripts/switch_monitors.sh
+bindsym $mod+c exec networkmanager_dmenu $dmenu_params
+
 
 # ---------------------------------------------------------
 # Pulse Audio controls

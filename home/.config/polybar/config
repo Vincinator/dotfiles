@@ -49,7 +49,7 @@ modules-left = i3
 modules-center =
 modules-right = battery backlight-acpi pulseaudio date
 
-tray-position = center
+tray-position = right
 tray-padding = 1
 tray-background = ${colors.background}
 wm-restack = i3
