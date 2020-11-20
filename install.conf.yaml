@@ -7,6 +7,7 @@
 - link:
     ~/.tmuxinator.yml: tmuxinator.yml
     ~/.config/fish/config.fish: config.fish
+    ~/.config/fish/fish_plugins: fish_plugins
 
 - create:
     - ~/downloads
@@ -14,4 +15,5 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - curl -fsSL https://starship.rs/install.sh | bash
+  - git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+  - fisher update
