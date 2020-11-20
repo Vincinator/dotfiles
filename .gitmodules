@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "diff-so-fancy"]
+	path = diff-so-fancy
+	url = git@github.com:so-fancy/diff-so-fancy.git
