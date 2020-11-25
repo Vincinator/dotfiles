@@ -10,7 +10,10 @@
     ~/.config/fish/fish_plugins: fish_plugins
     ~/.vimrc: vimrc
     ~/.tmux.conf: tmux.conf
-    ~/.vim/autoload/plug.vim: 
+    ~/.tmux/plugins/tpm:
+        create: true
+        path: deps/tpm
+    ~/.vim/autoload/plug.vim:
         create: true
         path: deps/vim-plug/plug.vim
 

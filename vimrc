@@ -1,11 +1,14 @@
 
+:let mapleader = "\<F10>"
+
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-
+Plug 'preservim/nerdtree'
+Plug 'junegunn/goyo.vim'
 Plug 'klen/python-mode'
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -24,13 +27,13 @@ let $FZF_DEFAULT_OPTS="--bind \"ctrl-n:preview-down,ctrl-p:preview-up\""
 " -----------------------
 
 :map <Leader>t :TagbarToggle<CR>
+:map <Leader>n :NERDTreeToggle<CR>
 
 
 " -----------------------
 " Shortcuts
 " -----------------------
 
-:let mapleader = "\<F10>"
 
 :map <Leader>b :Buffers<CR>
 :map <Leader>g :GFiles<CR>
