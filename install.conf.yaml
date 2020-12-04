@@ -29,4 +29,5 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+  - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
   - fisher update
