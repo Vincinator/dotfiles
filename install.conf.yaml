@@ -12,7 +12,7 @@
     ~/.vim/plugged/ale/ale_linters/Jenkinsfile/checkjenkinsfile.vim:
         create: true
         path: checkjenkinsfile.vim
-    /usr/local/bin/checkjenkinsfile: checkjenkinsfile.sh
+    ~/usrbin/checkjenkinsfile: checkjenkinsfile.sh
     ~/.tmux.conf: tmux.conf
     ~/.tmux/plugins/tpm:
         create: true
@@ -23,6 +23,7 @@
 
 - create:
     - ~/downloads
+    - ~/usrbin
     - ~/.vim/undo-history
 
 - shell:
