@@ -1,12 +1,12 @@
-" ~/.vim/ale_linters/Jenkinsfile/checkjenkinsfile.vim
+" ~/.vim/ale_linters/Jenkinsfile/checkci.vim
 call ale#linter#Define('Jenkinsfile', {
-\   'name': 'checkjenkinsfile',
-\   'executable': 'checkjenkinsfile',
-\   'command': 'checkjenkinsfile',
-\   'callback': 'ale_linters#Jenkinsfile#checkjenkinsfile#HandleJenkinsValidator',
+\   'name': 'checkci',
+\   'executable': 'checkci',
+\   'command': 'checkci',
+\   'callback': 'ale_linters#Jenkinsfile#checkci#HandleJenkinsValidator',
 \})
 
-function! ale_linters#Jenkinsfile#checkjenkinsfile#HandleJenkinsValidator(buffer, lines) abort
+function! ale_linters#Jenkinsfile#checkci#HandleJenkinsValidator(buffer, lines) abort
     " Regular expression to match messages:
     " They look like:
     " WorkflowScript: 7: Expected a step @ line 7, column 17.

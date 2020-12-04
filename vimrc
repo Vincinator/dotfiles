@@ -11,6 +11,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'klen/python-mode'
 Plug 'dense-analysis/ale'
+Plug 'martinda/jenkinsfile-vim-syntax'
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
@@ -21,17 +22,7 @@ call plug#end()
 " Plugin Preferences
 " -----------------------
 
-" ale jenkins options
 let $FZF_DEFAULT_OPTS="--bind \"ctrl-n:preview-down,ctrl-p:preview-up\""
-let g:ale_history_log_output = 1
-let g:ale_use_global_executables = 1
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_open_list = 1
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'Jenkinsfile': ['checkci'],
-\}
 
 " -----------------------
 " Plugin Shortcuts
@@ -73,4 +64,3 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-

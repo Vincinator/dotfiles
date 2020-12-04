@@ -6,13 +6,10 @@
 
 - link:
     ~/.tmuxinator.yml: tmuxinator.yml
-    ~/.config/fish/config.fish: config.fish
-    ~/.config/fish/fish_plugins: fish_plugins
+#   ~/.config/fish/config.fish: config.fish
+#   ~/.config/fish/fish_plugins: fish_plugins
     ~/.vimrc: vimrc
-    ~/.vim/plugged/ale/ale_linters/Jenkinsfile/checkjenkinsfile.vim:
-        create: true
-        path: checkjenkinsfile.vim
-    ~/usrbin/checkjenkinsfile: checkjenkinsfile.sh
+    ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
     ~/.tmux/plugins/tpm:
         create: true
@@ -29,5 +26,6 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-  - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-  - fisher update
+  - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# - fisher update
