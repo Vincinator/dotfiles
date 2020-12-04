@@ -9,6 +9,10 @@
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/fish_plugins: fish_plugins
     ~/.vimrc: vimrc
+    ~/.vim/plugged/ale/ale_linters/Jenkinsfile/checkjenkinsfile.vim:
+        create: true
+        path: checkjenkinsfile.vim
+    /usr/local/bin/checkjenkinsfile: checkjenkinsfile.sh
     ~/.tmux.conf: tmux.conf
     ~/.tmux/plugins/tpm:
         create: true
